@@ -153,6 +153,35 @@ python3
 Basic usage: python genomic_BUSCOs2uscofa.py -b busco_dirs.list -o 0-1 -t taxon_names.list -c nucl/prot<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### create_concat_matrix.py
+Create a concatenated matrix for phylogenomic inference. The input files and parameters include a list of alignment files to concatenate, a list of taxa to include, whether the sequences are proteins or nucleotides, and a prefix for output files. Output files include a fasta file of concatenated sequence with '.fa' appended to the end, a RAxML style partition file, and a file that summarizes the occupancy of each gene from each alignment.
+```
+import sys
+import getopt
+import os.path
+from Bio import SeqIO
+from Bio.SeqRecord import SeqRecord
+from Bio.Alphabet import IUPAC
+from Bio.Seq import Seq
+from datetime import datetime
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- SeqIO
+   |- SeqRecord
+      |- SeqRecord
+   |- Alphabet
+      |- IUPAC
+   |- Seq
+      |- Seq
+|- datetime
+   |- datetime
+```
+Basic usage: python create_concat_matrix.py -a alignment.list -t taxa.list -p prefix -c nucl/prot<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

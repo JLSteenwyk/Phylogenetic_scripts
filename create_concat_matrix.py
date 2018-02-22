@@ -3,12 +3,11 @@
 import sys
 import getopt
 import os.path
-import re
+#import re
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import IUPAC
 from Bio.Seq import Seq
-import numpy as np
 from datetime import datetime
 
 def create_concat(
@@ -227,7 +226,7 @@ def main(
                 alignment_list = arg
             else:
                 # error message
-                print("\n\nThe specified busco_list (-a) file does not exist.\n")
+                print("\n\nThe specified alignment list (-a) file does not exist.\n")
                 print("For detailed explanation of configuration file use -h argument\n")
                 sys.exit()
         elif opt == '-t':

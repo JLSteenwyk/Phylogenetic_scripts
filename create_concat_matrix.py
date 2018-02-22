@@ -44,11 +44,14 @@ def create_concat(
     file_occupancy = prefix + ".occupancy"
 
     # print log message
-    print("\n"+"-"*(len("- Output files -")))
+    print("\n"+"-"*(len("- General features -")))
+    print("| General features |")
+    print("-"*(len("- General features -")))
+    print("Total number of taxa:", len(taxa))
+    print("Total number of alignments:", len(alignments))
+    print("\n\n"+"-"*(len("- Output files -")))
     print("| Output files |")
     print("-"*(len("- Output files -")))
-    print("Total number of taxa:", len(taxa_list))
-    print("Total number of alignments:", len(alignments))
     print("partition file output:", file_partition)
     print("concatenated fasta output:", fastaOUT)
     print("occupancy report:", file_occupancy)

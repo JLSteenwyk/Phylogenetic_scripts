@@ -5,18 +5,42 @@ import getopt
 import os.path
 from Bio import SeqIO
 from Bio.Seq import Seq
+from Bio import Phylo
 
-def RCV(
-    alignment
+def report_result(
+    RCV, treeness
     ):
     """
-    determines if input fasta is nucleotide or protein
+    calculates and prints out treeness/RCV
+
+    Parameters
+    ----------
+    argv: RCV
+        RCV value
+    argv: treeness
+        treeness value
+    """
+
+    # calculate treeness over RCV and save result as ToverR
+    ToverR = treeness/RCV
+    print(ToverR)
+
+def RCV(
+    alignment, treeness
+    ):
+    """
+    calculate RCV
 
     Parameters
     ----------
     argv: alignment
         alignment fasta file
+    argv: treeness
+        treeness value
     """
+
+    # initialize holder for RCV 
+    RCV = ''
 
     # string to hold all sequences
     concatSeq = ''
@@ -59,9 +83,47 @@ def RCV(
             temp += abs(record.seq.count(seqLetter)-averageD[seqLetter])
         indivRCVvalues.append(temp/(numRecords*alignmentLen))
 
-    # print the sum of all RCV values
-    print(sum(indivRCVvalues))
+    # sum of all RCV values
+    RCV = (sum(indivRCVvalues))
 
+    report_result(
+        RCV, treeness
+        )
+
+def calculate_treeness(
+    alignment, tree
+    ):
+    """
+    calculates treeness of a newick tree file
+    
+    Parameters
+    ----------
+    argv: alignment
+        alignment fasta file
+    argv: tree
+        newick tree file
+    """
+
+    # initialize variable to calculate treeness
+    treeness = 0
+
+    # read in tree
+    tree = Phylo.read(tree, 'newick')
+
+    # initialize variables for terminal branch length
+    interLen = float(0.0)
+    # determine internal branch lengths
+    for interal in tree.get_nonterminals():
+    	interLen += interal.branch_length
+
+    # initialize variable for total branch length
+    totalLen = float(0.0)
+    # determine total branch length
+    totalLen = tree.total_branch_length()
+
+    treeness = (float(interLen/totalLen))
+
+    RCV(alignment, treeness)
 
 def main(
     argv
@@ -72,9 +134,10 @@ def main(
 
     # initialize argument variables
     alignment = ''
+    tree      = ''
 
     try:
-        opts, args = getopt.getopt(argv, "hi:")
+        opts, args = getopt.getopt(argv, "hi:t:")
     except getopt.GetoptError:
         # error message
         print("Error\nFor help use -h argument\n")
@@ -89,20 +152,25 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             ## explanation
-            print("\nCalculate relative nucleotide composition variability (RCV) as defined by Phillips and Penny")
-            print("2003, specifically in the manuscript titled 'The root of the mammalian tree inferred from")
-            print("whole mitochondrial genomes. Mol Phylogenet Evol. 28:171–185.'")
+            print("\nCalculate treeness and relative nucleotide composition variability (RCV) as defined by")
+            print("Phillips and Penny 2003, in the manuscript titled 'The root of the mammalian")
+            print("tree inferred from whole mitochondrial genomes. Mol Phylogenet Evol. 28:171–185.'")
             print("https://www.ncbi.nlm.nih.gov/pubmed/12878457\n")
             print("The formula for RCV is as follows:")
             print("the sum of i=1^n of (|Ai - A*| + |Ti - T*| + |Ci - C*| + |Gi - G*|)/n•t")
             print("where, Ai, Ti, Ci, and Gi are the number of nucleotides for the ith taxon,")
             print("A*, T*, C*, and G* are the averages of each nucleotide across the n taxa")
-            print("t is the number of sites and n is the number of taxa.")
-            print("\nThe output will a number that is the RCV value for a given alignment.")
+            print("t is the number of sites and n is the number of taxa.\n")
+            print("The formula to calculate treeness sum of internal branch lengths divided by total tree length.")
+            print("\nThe output will a number that is the treeness/RCV value for a given alignment and tree.\n")
             ## options
             # alignment files list
-            print("\n-i <alignment fasta file>")
+            print("-i <alignment fasta file>")
             print("\tA multi-fasta sequence alignment file")
+            # tree file
+            print("-t <newick tree file>")
+            print("\tNewick tree file associated with the alignment")
+            print("")
             sys.exit()
 
         elif opt == '-i':
@@ -113,10 +181,18 @@ def main(
                 print("\n\nThe specified alignment list (-i) file does not exist.\n")
                 print("For detailed explanation of configuration file use -h argument\n")
                 sys.exit()
+        elif opt == '-t':
+            if os.path.isfile(arg):
+                tree = arg
+            else:
+                # error message
+                print("\n\nThe specified tree file does not exist.\n")
+                print("For detailed explanation use -h argument\n")
+                sys.exit()
 
     # pass to read_config parameter
-    RCV(
-        alignment
+    calculate_treeness(
+        alignment, tree
         )
 
 if __name__ == '__main__':

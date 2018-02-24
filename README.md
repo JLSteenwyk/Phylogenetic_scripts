@@ -182,6 +182,22 @@ python3
 Basic usage: python create_concat_matrix.py -a alignment.list -t taxa.list -p prefix -c nucl/prot<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### variable_sites_of_alignment.py
+Determines the number and percentage of variable sites in a fasta alignment.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- re
+|- Bio
+   |- SeqIO
+   |- Seq
+      |- Seq
+```
+Basic usage: python genomic_BUSCOs2uscofa.py -b busco_dirs.list -o 0-1 -t taxon_names.list -c nucl/prot<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

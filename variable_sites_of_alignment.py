@@ -5,12 +5,10 @@ import getopt
 import os.path
 import re
 from Bio import SeqIO
-from Bio.SeqRecord import SeqRecord
 from Bio.Seq import Seq
-from pprint import pprint
 
 def variable_sites(
-    fasta, sequence_type
+    fasta
     ):
     """
     Reads the alignment list and taxa list
@@ -19,8 +17,6 @@ def variable_sites(
     ----------
     argv: fasta
         input fasta file
-    argv: sequence_type
-        specifies sequence type
     """
 
     # read in fasta file to alignment variable
@@ -28,7 +24,7 @@ def variable_sites(
     handle    = open(fasta)
     alignment = list(SeqIO.parse(handle, format))
 
-    # create a variable with all taxa names
+    # create a list with all taxa names
     taxa_list = []
     for record in alignment:
         taxa_list.append(record.id)
@@ -63,7 +59,9 @@ def variable_sites(
         # if there are multiple sequences in the position, add 1 to varSites
         if len(set(positionSeq)) > 1:
         	varSites += 1
-    print("{}\t{}".format(varSites, varSites/length))
+    
+    # print the number and percentage of variable sites 
+    print("{}\t{}".format(varSites, (varSites/length)*100))
 
 def main(
     argv
@@ -73,12 +71,10 @@ def main(
     """
 
     # initialize argument variables
-    alignment_list  = ''
-    taxa_list       = ''
-    prefix          = ''
+    fasta = ''
 
     try:
-        opts, args = getopt.getopt(argv, "hi:t:s:")
+        opts, args = getopt.getopt(argv, "hi:")
     except getopt.GetoptError:
         # error message
         print("Error\nFor help use -h argument\n")
@@ -115,18 +111,10 @@ def main(
                 print("\n\nThe specified fasta file (-i) does not exist.\n")
                 print("For detailed explanation of configuration file use -h argument\n")
                 sys.exit()
-        elif opt == '-t':
-            if arg in ('prot', 'nucl'):
-                sequence_type = arg 
-            else:
-                # error message
-                print("\n\nThe specified input for (-t) should be 'prot' or 'nucl'.\n")
-                print("For detailed explanation of configuration file use -h argument\n")
-                sys.exit()
 
     # pass to variable_sites function
     variable_sites(
-        fasta, sequence_type
+        fasta
         )
 
 if __name__ == '__main__':

@@ -96,11 +96,7 @@ def main(
             ## options
             # fasta file
             print("\n-i <input fasta file>:")
-            print("\tSingle column file of the alignment files that will be concatenated.")
-            # specify if nucleotide or protein files list
-            print("\n-t <fasta files are either nucleotide or protein fastas>:")
-            print("\tArgument can be either 'prot' or 'nucl' to specify if the")
-            print("\talignments contain protein or nucleotide sequences.\n")
+            print("\tSingle column file of the alignment files that will be concatenated.\n")
             sys.exit()
 
         elif opt == '-i':

@@ -69,13 +69,13 @@ def main(
             print("The output is the length of the -t alignment, the length of the -m alignment,")
             print("followed by the percentage of the -t alignment divided by the -m alignment.")
             print("The logic of the -t and -m denomination is the -m represents a mafft alignment")
-            print("and -t represents a trimAl alignment.\n")
+            print("and -t represents a trimAl alignment.")
             ## options
             # alignment files list
             print("\n-t <sequence alignment>")
             print("\tA multi-fasta sequence alignment file")
             print("\n-m <sequence alignment>")
-            print("\tA multi-fasta sequence alignment file")
+            print("\tA multi-fasta sequence alignment file\n")
             sys.exit()
 
         elif opt == '-m':

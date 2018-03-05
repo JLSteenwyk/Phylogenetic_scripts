@@ -198,6 +198,20 @@ python3
 Basic usage: python genomic_BUSCOs2uscofa.py -b busco_dirs.list -o 0-1 -t taxon_names.list -c nucl/prot<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### Identify_terminal_branches_xx_longer_than_the_median_branch_length.py
+Determines the branch length of each branch (internal and terminal) in a newick tree file. Then it determines the median branch length and reports any terminal branches that are equal to or greater than 'xx' the median terminal branch length. 'xx' is defined by the -n parameter. This script was designed specifically to identify potentially spurious sequences and subsequently remove them from a single gene tree.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- statistics
+|- Bio
+   |- Phylo
+```
+Basic usage: python Identify_terminal_branches_xx_longer_than_the_median_branch_length.py -t tree.file -n 20<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

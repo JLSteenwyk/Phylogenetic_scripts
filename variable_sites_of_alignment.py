@@ -92,7 +92,7 @@ def main(
             print("\nDetermine the number of variable sites in a alignment fasta file.")
             print("This script is designed to help facilitate creating phylogenomic matrix")
             print("subsets. The output has two columns where the first column is the number")
-            print("of variable sites and the second column is the percentage.")
+            print("of variable sites and the second column is the percentage of variable sites.")
             ## options
             # fasta file
             print("\n-i <input fasta file>:")

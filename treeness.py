@@ -25,7 +25,9 @@ def calculate_treeness(
     interLen = float(0.0)
     # determine internal branch lengths
     for interal in tree.get_nonterminals():
-        interLen += interal.branch_length
+        # only include if a branch length value is present
+        if interal.branch_length != None:
+            interLen += interal.branch_length
 
     # initialize variable for total branch length
     totalLen = float(0.0)

@@ -212,6 +212,21 @@ python3
 Basic usage: python Identify_terminal_branches_xx_longer_than_the_median_branch_length.py -t tree.file -n 20<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### bootstrap_statistics.py
+Prints out various statistics regarding the bootstrap support of a phylogenetic tree. Statistics printed include the mean, median, standard deviation, variance, and the 25th and 75th percentile.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- statistics
+|- numpy
+|- Bio
+   |- Phylo
+```
+Basic usage: python bootstrap_statistics.py -t tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

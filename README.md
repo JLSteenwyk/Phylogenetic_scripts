@@ -260,6 +260,19 @@ python3
 Basic usage: python shuffle_each_site_in_mfasta.py -t tree.file -s seed<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### print_tree.py
+Prints a phylogenetic newick tree in ASCII format.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+```
+Basic usage: python print_tree.py -i tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

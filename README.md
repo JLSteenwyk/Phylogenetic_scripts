@@ -246,6 +246,20 @@ python3
 Basic usage: python shuffle_each_site_in_mfasta.py -i fasta.file -t prot/nucl -s seed<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### shuffle_taxa_in_a_tree.py
+Shuffles taxa in a newick tree. This script also strips out bootstrap values.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- random
+|- Bio
+   |- Phylo
+```
+Basic usage: python shuffle_each_site_in_mfasta.py -t tree.file -s seed<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

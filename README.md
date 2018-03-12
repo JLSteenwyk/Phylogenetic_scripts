@@ -234,10 +234,14 @@ python3
 |- sys
 |- getopt
 |- os.path
-|- statistics
-|- numpy
+|- re
+|- random
 |- Bio
    |- Phylo
+   |- SeqRecord
+      |- SeqRecord
+   |- Seq
+      |- Seq
 ```
 Basic usage: python shuffle_each_site_in_mfasta.py -i fasta.file -t prot/nucl -s seed<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)

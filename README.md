@@ -227,6 +227,21 @@ python3
 Basic usage: python bootstrap_statistics.py -t tree.file<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### shuffle_each_site_in_mfasta.py
+Shuffles each site in an aligned fasta file such that each column is randomly shuffled. The proportion of each nucleotide or protein is maintained for each column.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- statistics
+|- numpy
+|- Bio
+   |- Phylo
+```
+Basic usage: python shuffle_each_site_in_mfasta.py -i fasta.file -t prot/nucl -s seed<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

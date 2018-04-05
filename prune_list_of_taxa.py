@@ -69,6 +69,8 @@ def main(
             print("Arguments include -i <newick.tree> and -l <taxa.list>\n")
             print("Where the -i argument specifies a tree in newick format and")
             print("the -l option specifies a single column file with taxa to prune.")
+            print("Output is a tree with the same name as the input tree with")
+            print(".pruned appended to the end of the name.")
             sys.exit()
         elif opt == '-i':
             if os.path.isfile(arg):

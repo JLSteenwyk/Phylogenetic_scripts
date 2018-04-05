@@ -273,6 +273,112 @@ python3
 Basic usage: python print_tree.py -i tree.file<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### create_labels_for_internodes_as_support.py
+Creates internode labels from 1 to n where n is the number of internodes in the tree. Internode labels are reported as confidence scores that can be easily viewed in FigTree of other similar software. The only argument is -t to specify a newick tree file. The output will be a tree with the same file name and ".internodeLabels.tree" appended to the end.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- Clade
+```
+Basic usage: python create_labels_for_internodes_as_support.py -t tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### report_ic_as_internode_support.py
+Internode certainty scores as outputted from RAxML are modified to be reported branch support labels. The input newick tree is specified with the -i parameter. Internode certainty values can then be easily viewed in FigTree of other similar software.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- Clade
+|- re
+```
+Basic usage: python report_ic_as_internode_support.py -i tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### retrieve_internode_certainty_values.py
+Extracting internode certainty values may be of interest to plot the distribution of internode certainty values for various trees. This script extract the internode certainty values of a single tree produced from a RAxML output. The phylogenetic tree in newick format is specified with the -t parameter.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+|- re
+```
+Basic usage: python retrieve_internode_certainty_values.py -t tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### root_on_clade.py
+Roots tree on specified clade of individuals. The individuals to root the tree on are specified in a separate file that contains a single column file list of taxa. This file is specified using the -o parameter. The input tree is specified with the -i parameter. The output is a newick tree file with the same name as the original tree file with .rooted.tre appended to the end of the file name.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- Clade
+```
+Basic usage: python root_on_clade.py -t tree.file -o individuals.list<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### prune_list_of_taxa.py
+Prunes list of a taxa from a newick tree file. Arguments include -i to specific a newick tree and -l to specify a file with a single column list of taxa to prune. Output is a tree with the same name as the input tree with .pruned appended to the end of the name.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- TreeMixin
+```
+Basic usage: python prune_list_of_taxa.py -i tree.file -l individuals.list<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### remove_distances_from_tree.py
+Removes distances from a tree in newick format. This can be used if you are only interested in the topology of the tree or want to reestimate branch lengths after making a consensus tree. The input newick tree file is specified with the -t parameter.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- Clade
+```
+Basic usage: python remove_distances_from_tree.py -t tree.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### DVMC_degree_of_violation_of_a_molecular_clock.py
+Calculates the degree of violation of a molecular clock (DVMC) for a tree. The tree, specified with the -t parameter, is first rooted on the outgroup taxa and then those outgroup taxa are pruned from the tree - outgroup taxa are specified in a single column separate file using the -o parameter. After that, DVMC is calculated. The outgroup taxa should be the taxa that are not used in the timetree but present in the phylogenetic tree. This is calculated according to the following paper: http://www.pnas.org/content/114/35/E7282
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+      |- BaseTree
+         |- TreeMixin
+|- math
+```
+Basic usage: python DVMC_degree_of_violation_of_a_molecular_clock.py -t tree.file -o outgroup.list <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

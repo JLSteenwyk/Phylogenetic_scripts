@@ -69,8 +69,11 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nRoots tree on single column file list of taxa specified with the -o parameter.")
-            print("The input tree is specified with the -i parameter.")
+            print("\nRoots tree on specified clade of individuals. The individuals to root the tree on are")
+            print("specified in a separate file that contains a single column file list of taxa. This file")
+            print("is specified using the -o parameter. The input tree is specified with the -t parameter.")
+            print("The output is a newick tree file with the same name as the original tree file with")
+            print(".rooted.tre appended to the end of the file name.")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):

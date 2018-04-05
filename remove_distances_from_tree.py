@@ -59,7 +59,9 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nRemoves distances from a tree in newick format.")
+            print("\nRemoves distances from a tree in newick format. This can be used if you are only interested")
+            print("in the topology of the tree or want to reestimate branch lengths after making a consensus tree.")
+            print("The input newick tree file is specified with the -t parameter.")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):

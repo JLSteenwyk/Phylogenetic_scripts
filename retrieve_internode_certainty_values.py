@@ -6,7 +6,6 @@ import os.path
 #from Bio.Phylo.BaseTree import TreeMixin
 from Bio import Phylo
 import re
-import numpy
 
 def print_IC(
     tree
@@ -57,8 +56,10 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nPulls out the internode certainty (IC) values of a phylogenetic tree outputed from RAxML.")
-            print("Specify the tree with the -n parameter")
+            print("\nExtracting internode certainty values may be of interest to plot the distribution of internode")
+            print("certainty values for various trees. This script extract the internode certainty values of a single")
+            print("tree produced from a RAxML output. The phylogenetic tree in newick format is specified with the")
+            print("-t parameter.")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):

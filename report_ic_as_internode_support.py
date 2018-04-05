@@ -70,13 +70,13 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nRoots tree on single column file list of taxa specified with the -o parameter.")
-            print("The input tree is specified with the -i parameter.")
+            print("\nInternode certainty scores as outputted from RAxML are modified to be reported branch support labels.")
+            print("The input tree is specified with the -i parameter. Internode certainty values can then be easily viewed")
+            print("in FigTree of other similar software.")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):
                 tree = arg
-                filename=tree+".rooted.tre"
             else:
                 # error message
                 print("\n\nThe specified tree file does not exist.\n")

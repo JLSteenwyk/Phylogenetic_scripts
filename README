@@ -1,8 +1,0 @@
- create mode 100644 create_labels_for_internodes_as_support.py
- create mode 100644 find_conflicting_internodes_between_two_trees.py
- create mode 100644 report_ic_as_internode_support.py
- create mode 100644 retrieve_internode_certainty_values.py
- create mode 100644 root_on_clade.py
-prune_list_of_taxa
-remove distances from tree
-DVMC_degree_of_violation_of_a_molecular_clock.py

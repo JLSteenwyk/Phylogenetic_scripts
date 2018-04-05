@@ -60,12 +60,15 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nCreates labels for internodes in a tree.")
+            print("\nCreates labels for internodes in a tree. Non-terminal branches will be looped through")
+            print("Using .get_nonterminals in BioPython and each internode will get a numerical label")
+            print("starting from 1 to n where n is the number of internodes in the tree. Each internode")
+            print("label is reported as a confidence score that can be easily viewed in FigTree. The only")
+            print("option is -t for a newick tree file.")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):
                 tree = arg
-                filename=tree+".rooted.tre"
             else:
                 # error message
                 print("\n\nThe specified tree file does not exist.\n")

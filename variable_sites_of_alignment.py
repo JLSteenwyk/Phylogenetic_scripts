@@ -118,7 +118,10 @@ def main(
             ## options
             # fasta file
             print("\n-i <input fasta file>:")
-            print("\tSingle column file of the alignment files that will be concatenated.\n")
+            print("\tInput fasta file.")
+            # state file
+            print("\n-c <class of sequence>:")
+            print("\tProt of Nucl.\n")
             sys.exit()
 
         elif opt == '-i':

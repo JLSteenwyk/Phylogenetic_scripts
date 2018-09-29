@@ -8,7 +8,7 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 
 def variable_sites(
-    fasta
+    fasta, state
     ):
     """
     Reads the alignment list and taxa list
@@ -17,6 +17,8 @@ def variable_sites(
     ----------
     argv: fasta
         input fasta file
+    argv: state
+        describes if the sequences are nucl or prot
     """
 
     # read in fasta file to alignment variable
@@ -44,21 +46,40 @@ def variable_sites(
     # intialize variable to hold number of variable sites
     varSites = 0
 
-    # loop through fasta alignment file one position at a time
-    for i in range(0, (int(length)+1) - int(step), int(step)):
-        # list to hold sequence at that position
-        positionSeq = ''
-        # loop through individuals in sequence and append the sequence
-        # at the position in the loop
-        for k, v in seqDict.items():
-            positionSeq += (v[i:i+int(window)])
-        # extract only the sequence from the sequence object
-        positionSeq = positionSeq._data
-        # remove gaps (-?) and ambiguous sites (NX)
-        positionSeq = re.sub('[-?NX]', '', positionSeq)
-        # if there are multiple sequences in the position, add 1 to varSites
-        if len(set(positionSeq)) > 1:
-        	varSites += 1
+    # if protein alignment
+    if state == 'prot':
+        # loop through fasta alignment file one position at a time
+        for i in range(0, (int(length)+1) - int(step), int(step)):
+            # list to hold sequence at that position
+            positionSeq = ''
+            # loop through individuals in sequence and append the sequence
+            # at the position in the loop
+            for k, v in seqDict.items():
+                positionSeq += (v[i:i+int(window)])
+            # extract only the sequence from the sequence object
+            positionSeq = positionSeq._data.upper()
+            # remove gaps (-?) and ambiguous sites (NX)
+            positionSeq = re.sub('[-?BZJX.]', '', positionSeq)
+            # if there are multiple sequences in the position, add 1 to varSites
+            if len(set(positionSeq)) > 1:
+                varSites += 1
+        # if protein alignment
+    elif state == 'nucl':
+        # loop through fasta alignment file one position at a time
+        for i in range(0, (int(length)+1) - int(step), int(step)):
+            # list to hold sequence at that position
+            positionSeq = ''
+            # loop through individuals in sequence and append the sequence
+            # at the position in the loop
+            for k, v in seqDict.items():
+                positionSeq += (v[i:i+int(window)])
+            # extract only the sequence from the sequence object
+            positionSeq = positionSeq._data.upper()
+            # remove gaps (-?) and ambiguous sites (NX)
+            positionSeq = re.sub('[RYWSKMDVHB]', '', positionSeq)
+            # if there are multiple sequences in the position, add 1 to varSites
+            if len(set(positionSeq)) > 1:
+                varSites += 1
     
     # print the number and percentage of variable sites 
     print("{}\t{}".format(varSites, (varSites/length)*100))
@@ -72,9 +93,10 @@ def main(
 
     # initialize argument variables
     fasta = ''
+    state = ''
 
     try:
-        opts, args = getopt.getopt(argv, "hi:")
+        opts, args = getopt.getopt(argv, "hi:c:")
     except getopt.GetoptError:
         # error message
         print("Error\nFor help use -h argument\n")
@@ -107,10 +129,18 @@ def main(
                 print("\n\nThe specified fasta file (-i) does not exist.\n")
                 print("For detailed explanation of configuration file use -h argument\n")
                 sys.exit()
+        elif opt == '-c':
+            if arg:
+                state = str(arg)
+            else:
+                # error message
+                print("\n\nMust be nucl or prot for nucleotides or proteins.\n")
+                print("For detailed explanation of configuration file use -h argument\n")
+                sys.exit()
 
     # pass to variable_sites function
     variable_sites(
-        fasta
+        fasta, state
         )
 
 if __name__ == '__main__':

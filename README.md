@@ -195,7 +195,7 @@ python3
    |- Seq
       |- Seq
 ```
-Basic usage: python genomic_BUSCOs2uscofa.py -b busco_dirs.list -o 0-1 -t taxon_names.list -c nucl/prot<br />
+Basic usage: python variable_sites_of_alignment.py -i alignment.fasta -c nucl/prot<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
 ### Identify_terminal_branches_xx_longer_than_the_median_branch_length.py

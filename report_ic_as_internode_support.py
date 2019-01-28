@@ -28,19 +28,23 @@ def modTree(
     # read in tree
     tree = Phylo.read(tree, 'newick')
     for i in tree.get_nonterminals():
+        # if there is no comment, continue
         if i.comment is None:
             1
+        # if there is a comment switch confidence for IC values
         elif i.comment is not None:
             i.confidence=float(re.sub(r',[^,]*$', '', i.comment))
             i.comment = None
+        # Repeat the previous if statement logic but loop through
+        # the remainder of the tree
         for ii in i.clades:
             if ii.comment is None:
                 1
             elif ii.comment is not None:
                 ii.confidence = float(re.sub(r',[^,]*$', '', ii.comment))
                 ii.comment = None
-            #print(vars(ii))
 
+    # write to a new tree
     Phylo.write(tree, filename, 'newick')
 
 def main(
@@ -71,8 +75,9 @@ def main(
         if opt == '-h':
             # general script explanation
             print("\nInternode certainty scores as outputted from RAxML are modified to be reported branch support labels.")
-            print("The input tree is specified with the -i parameter. Internode certainty values can then be easily viewed")
-            print("in FigTree of other similar software.")
+            print("The input tree is specified with the -t parameter. Internode certainty values can then be easily viewed")
+            print("in FigTree of other similar software.\n\n")
+            print("The output file will have the same name as the input file with the suffix 'ic.tree' added to it")
             sys.exit()
         elif opt == '-t':
             if os.path.isfile(arg):
@@ -83,7 +88,7 @@ def main(
                 print("For detailed explanation use -h argument\n")
                 sys.exit()
 
-    # pass to calculate_treeness function
+    # pass to modTree function
     modTree(
         tree
         )

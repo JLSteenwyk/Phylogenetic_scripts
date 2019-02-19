@@ -380,7 +380,7 @@ Basic usage: python DVMC_degree_of_violation_of_a_molecular_clock.py -t tree.fil
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
 ### create_taxon_bootstrap_alignments.py
-This script is designed to make subsets of a given fasta file. Subsets are created based on taxa and not the alignment such that a fraction of the total taxa represented in the input fasta file are used to create the resulting fasta files. This script samples without replacement.
+This script is designed to make subsets of a given fasta file. Subsets are created based on taxa and not the alignment such that a fraction of the total taxa represented in the input fasta file are used to create the resulting fasta files. This script samples without replacement. The input fasta file is specified using the -i argument, the number of taxa to subset is specified using the -l argument, the number of replicates to perform is specified using the -r argument, the seed is set using the -s argument, and the prefix of the output files is specified using the -p argument.
 ```
 python3
 |- sys

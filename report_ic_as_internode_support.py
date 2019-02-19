@@ -74,7 +74,7 @@ def main(
     for opt, arg in opts:
         if opt == '-h':
             # general script explanation
-            print("\nInternode certainty scores as outputted from RAxML are modified to be reported branch support labels.")
+            print("\nInternode certainty scores as outputted from RAxML are modified to be reported bipartition support labels.")
             print("The input tree is specified with the -t parameter. Internode certainty values can then be easily viewed")
             print("in FigTree of other similar software.\n\n")
             print("The output file will have the same name as the input file with the suffix 'ic.tree' added to it")

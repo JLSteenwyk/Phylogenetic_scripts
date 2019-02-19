@@ -379,6 +379,22 @@ python3
 Basic usage: python DVMC_degree_of_violation_of_a_molecular_clock.py -t tree.file -o outgroup.list <br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### create_taxon_bootstrap_alignments.py
+This script is designed to make subsets of a given fasta file. Subsets are created based on taxa and not the alignment such that a fraction of the total taxa represented in the input fasta file are used to create the resulting fasta files. This script samples without replacement.
+```
+python3
+|- sys
+   |- stdout
+|- getopt
+|- os.path
+|- Bio
+   |- SeqIO
+|- random
+|- itertools
+```
+Basic usage: python create_taxon_bootstrap_alignments.py -i input.fa -l 50 -r 100 -s 1 -p subset <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

@@ -395,6 +395,21 @@ python3
 Basic usage: python create_taxon_bootstrap_alignments.py -i input.fa -l 50 -r 100 -s 1 -p subset <br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### RCV.py
+Calculate relative nucleotide composition variability (RCV) as defined by Phillips and Penny 2003, specifically in the manuscript titled 'The root of the mammalian tree inferred from whole mitochondrial genomes. Mol Phylogenet Evol. 28:171–185. https://www.ncbi.nlm.nih.gov/pubmed/12878457. The only file is an input fasta file which, is specified using the -i argument.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- SeqIO
+|- Bio.Seq
+   |- Seq
+```
+Basic usage: python python RCV.py -i fasta.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

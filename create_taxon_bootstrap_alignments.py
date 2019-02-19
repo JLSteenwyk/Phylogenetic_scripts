@@ -116,7 +116,7 @@ def main(
             # general script explanation
             print("\nThis script is designed to make subsets of a given fasta file. Subsets are created based")
             print("on taxa and not the alignment such that a fraction of the total taxa represented in the input")
-            print("fasta file are used to create the resulting fasta files.\n")
+            print("fasta file are used to create the resulting fasta files. This script samples without replacement.\n")
             print("Required arguments include:")
             print("-i: input fasta file")
             print("-l: subset length (i.e., how many taxa will be in each subset")

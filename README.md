@@ -423,6 +423,19 @@ python3
 Basic usage: python compare_lengths_of_two_alignments.py -m alignment.file -t alignment.file<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### total_tree_length.py
+Calculates tree length of a phylogenetic tree in newick format.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+```
+Basic usage: python compare_lengths_of_two_alignments.py -t newick.tre <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

@@ -407,7 +407,20 @@ python3
 |- Bio.Seq
    |- Seq
 ```
-Basic usage: python python RCV.py -i fasta.file<br />
+Basic usage: python RCV.py -i fasta.file<br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### compare_lengths_of_two_alignments.py
+Compare the alignment length between two alignments. This script was designed for phylogenomics projects. More specifically, it is good to filter out genes who's trimmed and aligned length is less than 50 percent the aligned gene's length. The output is the length of the -t alignment, the length of the -m alignment followed by the percentage of the -t alignment divided by the -m alignment. The logic of the -t and -m denomination is the -m represents a mafft alignment and -t represents a trimAl alignment.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- SeqIO
+```
+Basic usage: python compare_lengths_of_two_alignments.py -m alignment.file -t alignment.file<br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
 ## Authors

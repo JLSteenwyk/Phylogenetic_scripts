@@ -3,9 +3,7 @@
 import sys
 import getopt
 import os.path
-from Bio import SeqIO
 from Bio import Phylo
-from pprint import pprint
 from datetime import datetime
 
 def compare_trees(
@@ -329,7 +327,7 @@ def main(
             print("properly processed before using this script. Note, output files will be")
             print("rewritten from previous runs of the script.\n\n")
             print("Usage:")
-            print("python compare2trees.py -a tree1 -b tree2 [-s subset_of_taxa.txt]\n")
+            print("python compare2trees.py -a tree1 -b tree2\n")
             print("• tree1 is a newick tree file. This tree is the 'reference' tree")
             print("• tree2 is a newick tree file that will be compared to tree1\n\n")
             print("The output will be a series of files.")

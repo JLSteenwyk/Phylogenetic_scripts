@@ -436,6 +436,41 @@ python3
 Basic usage: python compare_lengths_of_two_alignments.py -t newick.tre <br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### compare2trees.py
+This script compares two trees and reports the differences between them.
+Input trees must be rooted and contain the same set of taxa. There is no
+test within the script for these parameters so ensure the trees have been
+properly processed before using this script. Note, output files will be
+rewritten from previous runs of the script.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio
+   |- Phylo
+|- datetime
+   |- datetime
+```
+Basic usage: python compare2trees.py -a tree1 -b tree2 <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+### prepare_tags_for_BayesTraits.py
+Creates tags for BayesTraits run/parameters file by looping through all internal nodes and identifying children tips from there. Nodes are labeled according to how they are encoutnered in the tree file. The tree file should be a nexus file and be the same one as is used as input for BayesTraits.
+```
+python3
+|- sys
+|- getopt
+|- os.path
+|- Bio.Phylo.BaseTree
+   |- Clade
+|- pprint
+   |- pprint
+```
+Basic usage: python prepare_tags_for_BayesTraits.py -t tree <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
+
+
 ## Authors
 
 * **Jacob Steenwyk** - [Github page](https://jlsteenwyk.github.io/)

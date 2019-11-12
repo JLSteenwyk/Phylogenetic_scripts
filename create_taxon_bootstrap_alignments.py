@@ -59,6 +59,18 @@ def create_combos(
 
     # save fasta file to dictionary
     fastaD = SeqIO.to_dict(SeqIO.parse(fasta, "fasta"))
+
+    ## create all pairwise comparisons of replicates in taxa_arr
+    all_pairwise=list(itertools.combinations(taxa_arr, 2))
+    # initialize array to hold overlap between pairwise comparisons
+    overlap=[]
+    for pair in all_pairwise:
+        overlap.append(str(len(set(pair[0]).intersection(pair[1]))))
+    # create a file that has the number of overlaps between replicates
+    overlap_file_name=prefix+".overlap_summary"
+    with open(overlap_file_name, mode='wt', encoding='utf-8') as myfile:
+        myfile.write('\n'.join(overlap))
+
     ## create replicate fasta files
     # initialize counter
     cnt = 1
@@ -76,10 +88,9 @@ def create_combos(
         percent = (cnt/replicates)*100
         sys.stdout.write("\rWriting {} of {} ({:.2f}%) fasta files".format(cnt, replicates, percent))
         # write output fasta file
-        SeqIO.write(records, out, "fasta")
+        #SeqIO.write(records, out, "fasta")
         sys.stdout.flush()
         cnt+=1
-    
     print("\n")
 
 

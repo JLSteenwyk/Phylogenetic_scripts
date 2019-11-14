@@ -82,7 +82,7 @@ def compare_trees(
                 sys.exit()
 
             # determine monophyletic children clades FIX THIS. CANNOT COLLAPSE CORRECTLY
-            for child1 in clade1.get_nonterminals():
+            for child1 in parent1.get_nonterminals()[0]:
                 subtreeLeaves1 = []
                 subtreeLeaves2 = []
                 for leaf1 in child1.get_terminals():
@@ -90,7 +90,7 @@ def compare_trees(
                 child2 = tree2.common_ancestor(subtreeLeaves1)
                 for leaf2 in child2.get_terminals():
                     subtreeLeaves2.append(leaf2.name)
-                #print(subtreeLeaves1, subtreeLeaves2)
+                print(subtreeLeaves1, subtreeLeaves2)
                 #Phylo.draw_ascii(child1)
                 if (set(subtreeLeaves1)==set(subtreeLeaves2)) and (len(subtreeLeaves1) >= 5):
                     print("TRUE", subtreeLeaves1, subtreeLeaves2)

@@ -47,6 +47,7 @@ def compare_trees(
         f.write("library(ggtree)\n")
         f.write("library(cowplot)\n")
         f.write("library(emojifont)\n")
+        f.write("library(ggplot2)\n")
 
     # Initialize text file that describes all conflicts
     fileNameALL='Table_summarizing_conflicts.txt'
@@ -81,7 +82,9 @@ def compare_trees(
                 print("Exiting now...")
                 sys.exit()
 
-            # determine monophyletic children clades FIX THIS. CANNOT COLLAPSE CORRECTLY
+            # determine monophyletic children clades
+            ## This currently DOES NOT WORK for deep incongruences 
+            ## Fix this 
             for child1 in parent1.get_nonterminals()[0]:
                 subtreeLeaves1 = []
                 subtreeLeaves2 = []
@@ -199,6 +202,7 @@ def compare_trees(
         f.write("library(ggtree)\n")
         f.write("library(cowplot)\n")
         f.write("library(emojifont)\n")
+        f.write("library(ggplot2)\n")
         
         # read in trees
         f.write("\n\n# Read in trees\n")

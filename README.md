@@ -213,7 +213,7 @@ Basic usage: python Identify_terminal_branches_xx_longer_than_the_median_branch_
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
 ### bootstrap_statistics.py
-Prints out various statistics regarding the bootstrap support of a phylogenetic tree. Statistics printed include the mean, median, standard deviation, variance, and the 25th and 75th percentile.
+Prints out various statistics regarding the bootstrap support of a phylogenetic tree. Statistics printed include the mean, median, min, max, and the 25th and 75th percentile.
 ```
 python3
 |- sys

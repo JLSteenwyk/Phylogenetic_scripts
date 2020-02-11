@@ -35,12 +35,12 @@ def print_BS(
     # calculate various statistics
     mean          = stat.mean(bs_vals)
     median        = stat.median(bs_vals)
-    stdev         = stat.stdev(bs_vals)
-    var           = stat.variance(bs_vals, mean)
+    mini         = np.min(bs_vals)
+    maxi           = np.max(bs_vals)
     twenty_fifth  = np.percentile(bs_vals, 25)
     seventy_fifth = np.percentile(bs_vals, 75)
 
-    print("{}\t{}\t{}\t{}\t{}\t{}".format(mean, median, stdev, var, twenty_fifth, seventy_fifth))
+    print("{}\t{}\t{}\t{}\t{}\t{}".format(mean, median, mini, maxi, twenty_fifth, seventy_fifth))
 
     
 def main(
@@ -76,8 +76,8 @@ def main(
             print("order such as that")
             print("col 1: mean")
             print("col 2: median")
-            print("col 3: standard deviation")
-            print("col 4: variance")
+            print("col 3: min")
+            print("col 4: max")
             print("col 5: 25th percentile")
             print("col 6: 75th percentile")
             sys.exit()

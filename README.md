@@ -470,6 +470,15 @@ python3
 Basic usage: python prepare_tags_for_BayesTraits.py -t tree <br />
 Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
+### normalized_RFdist.R
+Calculates normalized robinson foulds distance between two trees.
+```
+R
+|- phangorn
+|- ape
+```
+Basic usage: Rscript normalized_RFdist.R tre1 tre2 <br />
+Original author: [Jacob Steenwyk](https://jlsteenwyk.github.io/)
 
 ## Authors
 

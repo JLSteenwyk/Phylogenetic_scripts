@@ -58,8 +58,8 @@ def calculate_LBscore(
 
     with open(inTree + ".LBi-scores", 'w') as f:
         for tip, LBi in zip(tips, LBis):
-            f.write(str(tip) + "\t" + str(LBi))
-    
+            f.write(str(tip) + "\t" + str(LBi) + "\n")
+
     mean          = stat.mean(LBis)
     median        = stat.median(LBis)
     twenty_fifth  = np.percentile(LBis, 25)

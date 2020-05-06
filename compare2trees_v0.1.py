@@ -232,19 +232,19 @@ def compare_trees(
         f.write("\ndev.off()")
 
         # create plot for t1 with geom_points
-        f.write("\n\n# Code for plotting tree1\n")
-        f.write("pdf('tree2_conflicts.pdf')\n")
-        for ii in taxa_conflicting_between_two_trees_tree1:
-            if taxa_conflicting_between_two_trees_tree2.index(ii) == 0:
-                line="foo(tre2, edge.width=2)" + "\n" + "nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')" + "\n"
-                f.write(line)
-            elif taxa_conflicting_between_two_trees_tree1.index(ii)+1 < len(taxa_conflicting_between_two_trees_tree1):
-                line="nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')" + "\n"
-                f.write(line)
-            elif taxa_conflicting_between_two_trees_tree1.index(ii)+1 == len(taxa_conflicting_between_two_trees_tree1):
-                line="nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')"
-                f.write(line)
-        f.write("\ndev.off()")
+        # f.write("\n\n# Code for plotting tree1\n")
+        # f.write("pdf('tree2_conflicts.pdf')\n")
+        # for ii in taxa_conflicting_between_two_trees_tree1:
+        #     if taxa_conflicting_between_two_trees_tree2.index(ii) == 0:
+        #         line="foo(tre2, edge.width=2)" + "\n" + "nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')" + "\n"
+        #         f.write(line)
+        #     elif taxa_conflicting_between_two_trees_tree1.index(ii)+1 < len(taxa_conflicting_between_two_trees_tree1):
+        #         line="nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')" + "\n"
+        #         f.write(line)
+        #     elif taxa_conflicting_between_two_trees_tree1.index(ii)+1 == len(taxa_conflicting_between_two_trees_tree1):
+        #         line="nodelabels(node=findMRCA(tre2, tips=c("+str(ii).replace("[","").replace("]","")+"), type = 'node'), frame='circle', cex=0.25, bg='red', text='')"
+        #         f.write(line)
+        # f.write("\ndev.off()")
 
 
     print("\n-----------------")
